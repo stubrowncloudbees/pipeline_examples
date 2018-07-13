@@ -35,7 +35,7 @@ spec:
                        try {
                            sh 'exit 1'
                        }
-                       catch (exc x){
+                       catch (exc){
                            echo 'somthing failed'
 
                        }
