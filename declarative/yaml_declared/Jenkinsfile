@@ -37,7 +37,7 @@ spec:
                        }
                        catch (exc){
                            echo 'somthing failed'
-                           throw
+
                        }
                    }
                 }
