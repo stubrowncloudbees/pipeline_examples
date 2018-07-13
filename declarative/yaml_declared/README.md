@@ -1,3 +1,7 @@
+* Declarative
+* yml defined pod template
+
+note as declarative pod runs as label name
 
 ```bash
 cjoc-0              1/1       Running   6          35d
