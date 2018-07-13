@@ -31,7 +31,15 @@ spec:
                     sh 'mvn -version'
                 }
                 container('busybox') {
-                    sh '/bin/busybox'
+                   script{
+                       try {
+                           sh 'echo hello'
+                       }
+                       catch (exc){
+                           echo 'somthing failed'
+                           throw
+                       }
+                   }
                 }
             }
         }
