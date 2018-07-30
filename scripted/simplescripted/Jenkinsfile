@@ -10,7 +10,3 @@ pl.test(regression)
 pl.deploy(staging,api)
 pl.test(load)
 pl.deploy(prod,api)
-
-
-scripted/simplescripted/Jenkinsfile
-scripted/simplescripted/Jenkinsfile
