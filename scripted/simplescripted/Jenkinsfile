@@ -1,5 +1,5 @@
 // import
-@Library("jenkins-shared-libraries@glob_libs")
+@Library("jenkins-shared-libraries@stulib")
 import org.stubrown.pipelines.simplescripted.*
 // instantiate
 pl = new simple()
@@ -10,3 +10,7 @@ pl.test(regression)
 pl.deploy(staging,api)
 pl.test(load)
 pl.deploy(prod,api)
+
+
+scripted/simplescripted/Jenkinsfile
+scripted/simplescripted/Jenkinsfile
