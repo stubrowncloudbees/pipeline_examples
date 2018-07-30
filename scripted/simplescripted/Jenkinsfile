@@ -4,7 +4,7 @@ import org.stubrown.pipelines.simplescripted.*
 // instantiate
 pl = new simple()
 // work
-pl.build(qa)
+pl.build()
 pl.deploy(qa,api)
 pl.test(regression)
 pl.deploy(staging,api)
