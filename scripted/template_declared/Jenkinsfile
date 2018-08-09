@@ -1,0 +1,24 @@
+pipeline {
+    agent {
+        node {
+            label 'general'
+        }
+    }
+    stages {
+        stage('build') {
+            steps {
+                container('maven') {
+                    sh' mvn -version'
+                    sh'sleep 600'
+                }
+            }
+        }
+        stage('deploy') {
+            steps {
+                container('golang') {
+                    sh 'go version'
+                }
+            }
+        }
+    }
+}                                                                                        
