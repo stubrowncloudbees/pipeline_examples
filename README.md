@@ -14,7 +14,8 @@ https://github.com/stubrowncloudbees/pipeline_examples/blob/master/scripted/temp
 
 #### Multi container
 https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/multi_container/Jenkinsfile
-_note: this isnt possible, use 'Yaml file declared' https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/yaml_file_declared/Jenkinsfile_
+
+_note: this isnt possible, use 'Yaml file declared' https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/yaml_file_declared/Jenkinsfile __
 
 #### Single container
 https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/single_container/Jenkinsfile
