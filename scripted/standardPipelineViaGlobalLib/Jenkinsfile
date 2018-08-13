@@ -3,7 +3,7 @@
 log.info 'Starting'
 
 standardPipeline{
-    projectName = {env.JOB_NAME}
+    projectName = ${env.JOB_NAME}
     serverDomain = "Project 1 server domain"
 
 }
