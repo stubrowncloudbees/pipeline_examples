@@ -1,7 +1,7 @@
 @Library("jenkins-shared-library") _
 
 log.info "Starting : ${env.JOB_NAME}"
-def stu = ${env.JOB_NAME}
+def stu = "${env.JOB_NAME}"
 
 standardPipeline{
     projectName = "123"
