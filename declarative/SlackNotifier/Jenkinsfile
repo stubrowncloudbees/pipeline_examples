@@ -1,40 +1,46 @@
-/* import shared library */
 @Library('jenkins-shared-library')_
 
 pipeline {
-    agent any
-
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '3'))
+    agent {
+        kubernetes {
+            label 'declarative-pod'
+            containerTemplate {
+                name 'maven'
+                image 'maven:3.3.9-jdk-8-alpine'
+                ttyEnabled true
+                command 'cat'
+            }
+        }
     }
-
-    parameters {
-        booleanParam(name: 'SKIP_TESTS', defaultValue: true, description: 'Check if you want to skip tests')
+    environment {
+        CONTAINER_ENV_VAR = 'container-env-var-value'
     }
-
-    tools {
-        maven 'maven 3.5.3'
-    }
-
     stages {
-        stage('Checkout Git repository') {
+        stage('Run maven') {
             steps {
-                git branch: 'master', credentialsId: 'libs' , url: 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                sh 'set'
+                sh 'test -f /usr/bin/mvn' // checking backwards compatibility
+                sh "echo OUTSIDE_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}"
+                container('maven') {
+                    sh 'echo INSIDE_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
+                    sh 'mvn -version'
+                }
+            }
+        }
+        stage('Run maven with a different shell') {
+            steps {
+                container(name: 'maven', shell: '/bin/bash') {
+                    sh 'mvn -version'
+                }
             }
         }
 
-        stage('Maven Build') {
-            steps {
-                sh 'mvn clean install -DskipTests=$SKIP_TESTS'
+        post {
+            always {
+                /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
+                slackNotifier(currentBuild.currentResult)
+               
             }
-        }
-    }
-
-    post {
-        always {
-            /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
-            slackNotifier(currentBuild.currentResult)
-
         }
     }
 }
