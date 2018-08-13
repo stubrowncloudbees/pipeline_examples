@@ -19,3 +19,5 @@ https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/s
 https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/yaml_file_declared/Jenkinsfile
 
 
+
+
