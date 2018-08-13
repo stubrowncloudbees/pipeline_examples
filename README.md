@@ -12,7 +12,7 @@ https://github.com/stubrowncloudbees/pipeline_examples/blob/master/scripted/temp
 
 ### Declarative
 
-#### Multi container _note: this isnt possible, use 'Yaml file declared'_
+#### Multi container _(note: this isnt possible, use 'Yaml file declared')_
 https://github.com/stubrowncloudbees/pipeline_examples/blob/master/declarative/multi_container/Jenkinsfile
 
 
